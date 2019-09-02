@@ -1,6 +1,6 @@
 // Obtaining an Artifactory server instance defined in Jenkins:
 			
-def server = Artifactory.server 'Artifactory Version 4.15.0'
+def server = Artifactory.server 'Artifactory Version 6.11.3'
 
 		 //If artifactory is not defined in Jenkins, then create on:
 		// def server = Artifactory.newServer url: 'Artifactory url', username: 'username', password: 'password'
@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('Clone sources'){
             steps {
-                git url: 'https://github.com/Anusha-DevOp/web_ex'
+                git url: 'https://github.com/angelovopsan/web_ex'
             }
         }
 
