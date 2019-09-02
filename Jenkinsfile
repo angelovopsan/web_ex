@@ -29,7 +29,7 @@ pipeline {
 	     steps {
 		//Prepare SonarQube scanner enviornment
 		withSonarQubeEnv('SonarQube 7.9.1') {
-		   bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar'
+		   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar'
 		}
 	      }
 	}
@@ -51,7 +51,7 @@ pipeline {
 		script {
 			rtMaven.tool = 'Maven-3.5.3' //Maven tool name specified in Jenkins configuration
 		
-			rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server //Defining where the build artifacts should be deployed to
+			rtMaven.deployer releaseRepo: 'Jenkins-integration', snapshotRepo: 'Jenkins-snapshot', server: server //Defining where the build artifacts should be deployed to
 			
 			rtMaven.resolver releaseRepo:'libs-release', snapshotRepo: 'libs-snapshot', server: server //Defining where Maven Build should download its dependencies from
 			
